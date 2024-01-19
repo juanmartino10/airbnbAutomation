@@ -1,0 +1,10 @@
+{
+  "devDependencies": {
+    "@cypress/grep": "^4.0.1",
+    "cypress": "^13.6.3"
+  },
+  "scripts": {
+    "test": "cypress open",
+    "test:headless": "cypress run"
+  }
+}
