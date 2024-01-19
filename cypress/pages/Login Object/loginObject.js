@@ -1,5 +1,9 @@
 class Login {
 
+    getDismissButton(){
+        return cy.get('a.woocommerce-store-notice__dismiss-link')
+    }
+
     getAccountButton() {
         return cy.get('a[href="https://shop.demoqa.com/my-account/"]')
     }
@@ -21,6 +25,7 @@ class Login {
     }
 
     NewLogin = (email, password) => {
+        this.getDismissButton().click()
         this.getAccountButton().click()
         this.getEmailField().type(email)
         this.getPasswordField().type(password)
