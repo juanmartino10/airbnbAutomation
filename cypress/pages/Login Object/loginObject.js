@@ -1,35 +1,32 @@
 class Login {
 
-    getDismissButton(){
-        return cy.get('a.woocommerce-store-notice__dismiss-link')
-    }
-
     getAccountButton() {
-        return cy.get('a[href="https://shop.demoqa.com/my-account/"]')
+        return cy.get('[data-testid="cypress-headernav-profile"]');
     }
 
-    getEmailField() {
-        return cy.get('#username')
+    getEmailButton() {
+        return cy.get('[data-testid="social-auth-button-email"]')
+    }
+
+    getEmailField(){
+        return cy.get('[data-testid="email-login-email"]')
+    }
+
+    getContinueButton() {
+        return cy.get('.t1dqvypu')
     }
 
     getPasswordField() {
-        return cy.get('#password')
+        return cy.get('[data-testid="email-signup-password"]')
     }
 
-    getButtonConfirmLogin() {
-        return cy.get('button.woocommerce-form-login__submit[name="login"]')
-    }
-
-    getLogoAccount() {
-        return cy.get('.page-title')
-    }
 
     NewLogin = (email, password) => {
-        this.getDismissButton().click()
         this.getAccountButton().click()
+        this.getEmailButton().click()
         this.getEmailField().type(email)
+        this.getContinueButton().click()
         this.getPasswordField().type(password)
-        this.getButtonConfirmLogin().click()
     }
 }
 
